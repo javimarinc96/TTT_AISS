@@ -19,7 +19,7 @@
 <legend>Youtube search for <c:out value="${param.query}"/></legend>
 
 
-<c:forEach items="${requestScope.items}" var="item">
+<c:forEach items="${items}" var="item">
 	<span>Video title: <c:out value="${item.snippet.title}"/></span><br/>
 </c:forEach>
 
