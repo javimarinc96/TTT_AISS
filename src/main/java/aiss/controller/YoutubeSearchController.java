@@ -38,7 +38,6 @@ public class YoutubeSearchController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
 		RequestDispatcher rd = null;
-		String part  =  request.getParameter("part");
 		String query = request.getParameter("query");
 		
 		String accessToken = (String) request.getSession().getAttribute("Youtube-token");
@@ -46,9 +45,9 @@ public class YoutubeSearchController extends HttpServlet {
 		if (accessToken != null && !"".equals(accessToken)) {
 			
 			// Search for videos in youtube
-			log.log(Level.FINE, "Searching for videos with  part" + part + "with keyword" + query);
+			log.log(Level.FINE, "Searching for videos with keyword" + query);
 			YoutubeResource youtube = new YoutubeResource(accessToken);
-			Search youtubeSearch = youtube.getSearch(part, query);
+			Search youtubeSearch = youtube.getSearch(query);
 			
 			if (youtubeSearch!=null){
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");

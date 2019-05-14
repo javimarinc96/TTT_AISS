@@ -23,17 +23,16 @@ public class YoutubeResource {
 	
     
     
-	public Search getSearch(String part,String query) throws UnsupportedEncodingException {
+	public Search getSearch(String query) throws UnsupportedEncodingException {
 
 		//Asegurarnos que la cadena esta en el formato correcto
 		
-		String part2 = URLEncoder.encode(part,"UTF-8");
 		String query2 = URLEncoder.encode(query,"UTF-8");
 		
 		
 		// Escribir la url de busqueda
 		
-		String url = uri+"?part="+part2+"&q="+query2+"&access_token="+access_token;
+		String url = uri+"?part=snippet&q="+query2+"&access_token="+access_token;
 		
 		//Añadimos un log
 		
