@@ -20,10 +20,14 @@
 
 
 <c:forEach items="${items}" var="item">
-	<span>Video title: <c:out value="${item.snippet.title}"/></span><br/>
+	<h2><c:out value="${item.snippet.title}"/></h2><br/>
+	<iframe class="video w100" width="640" width="360" src="www.youtube.com/embed/${item.id.videoId}"></iframe> 
+	
+	
 </c:forEach>
 
 </fieldset>
+
 
 </body>
 </html>
