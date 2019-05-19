@@ -29,6 +29,8 @@ public class YoutubeResource {
 		
 		String query2 = URLEncoder.encode(query,"UTF-8");
 		
+		log.log(Level.FINE, "query: ", query2);
+		log.log(Level.FINE, "token: ", this.access_token);
 		
 		// Escribir la url de busqueda
 		

@@ -21,7 +21,7 @@
 
 <c:forEach items="${items}" var="item">
 	<h2><c:out value="${item.snippet.title}"/></h2><br/>
-	<iframe src= "www.youtube.com/embed/${item.id.videoId}"  width="560" height="315" frameborder="0" allowfullscreen></iframe> 
+	<iframe src= "http://www.youtube.com/embed/${item.id.videoId}"></iframe> 
 </c:forEach>
 
 </fieldset>

@@ -39,13 +39,15 @@ public class YoutubeSearchController extends HttpServlet {
 		
 		RequestDispatcher rd = null;
 		String query = request.getParameter("query");
+		System.out.println(query);
 		
 		String accessToken = (String) request.getSession().getAttribute("Youtube-token");
 		
 		if (accessToken != null && !"".equals(accessToken)) {
 			
-			// Search for videos in youtube
+			// Search for videos on youtube
 			log.log(Level.FINE, "Searching for videos with keyword" + query);
+			log.log(Level.FINE, "token" + accessToken);
 			YoutubeResource youtube = new YoutubeResource(accessToken);
 			Search youtubeSearch = youtube.getSearch(query);
 			
