@@ -3,6 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
+
 	<servlet>
 		<servlet-name>HelloWorld</servlet-name>
 		<servlet-class>aiss.HelloWorldServlet</servlet-class>
@@ -15,6 +16,26 @@
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	
+	<!-- WEBAPP SERVLETS -->
+	
+  <servlet>
+    <servlet-name>YoutubeSearchController</servlet-name>
+    <servlet-class>aiss.controller.YoutubeSearchController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>YoutubeSearchController</servlet-name>
+    <url-pattern>/YoutubeSearch</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>TwitchSearchController</servlet-name>
+    <servlet-class>aiss.controller.TwitchSearchController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TwitchSearchController</servlet-name>
+    <url-pattern>/TwitchSearch</url-pattern>
+  </servlet-mapping>
 	
 	<!--  OAUTH SERVLETS 
   
@@ -34,42 +55,81 @@
   			initiation servlet could be	/AuthController/X, and the url-pattern of the callback
   			 servlet must be /oauth2callback/X.
   -->
-  <!--    Spotify example -->
   
-  <!--  
-  <servlet>
-    <description></description>
-    <display-name>SpotifyAuthController</display-name>
-    <servlet-name>SpotifyAuthController</servlet-name>
-    <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
-    <init-param>
-    	<param-name>provider</param-name>
-    	<param-value>Spotify</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SpotifyAuthController</servlet-name>
-    <url-pattern>/AuthController/Spotify</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>SpotifyOAuth2Callback</display-name>
-    <servlet-name>SpotifyOAuth2Callback</servlet-name>
-    <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
-    <init-param>
-    	<param-name>provider</param-name>
-    	<param-value>Spotify</param-value>
-    </init-param>
-    <init-param>
-    	<param-name>onSuccess</param-name>
-    	<param-value>close</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SpotifyOAuth2Callback</servlet-name>
-    <url-pattern>/oauth2callback/Spotify</url-pattern>
-  </servlet-mapping>
   
-  -->
+  
+    <!--   Youtube oAuth2 servlets    -->
+    
+    <!--YoutubeAuthController-->
+    <servlet>
+        <description/>
+        <servlet-name>YoutubeAuthController</servlet-name>
+        <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>Youtube</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>YoutubeAuthController</servlet-name>
+        <url-pattern>/AuthController/Youtube</url-pattern>
+    </servlet-mapping>
+    
+    <!--YoutubeOAuth2Callback-->
+    <servlet>
+        <description/>
+        <servlet-name>YoutubeOAuth2Callback</servlet-name>
+        <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>Youtube</param-value>
+        </init-param>
+        <init-param>
+            <param-name>onSuccess</param-name>
+            <param-value>redirect:/YoutubeSearch</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>YoutubeOAuth2Callback</servlet-name>
+        <url-pattern>/oauth2callback/Youtube</url-pattern> 
+    </servlet-mapping>
+    
+    <!--   Twicth oAuth2 servlets    -->
+    
+    <!--TwicthAuthController-->
+    <servlet>
+        <description/>
+        <servlet-name>TwicthAuthController</servlet-name>
+        <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>Twicth</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TwicthAuthController</servlet-name>
+        <url-pattern>/AuthController/Twicth</url-pattern>
+    </servlet-mapping>
+    
+    <!--YoutubeOAuth2Callback-->
+    <servlet>
+        <description/>
+        <servlet-name>TwicthOAuth2Callback</servlet-name>
+        <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>Twicth</param-value>
+        </init-param>
+        <init-param>
+            <param-name>onSuccess</param-name>
+            <param-value>redirect:/TwicthSearch</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TwicthOAuth2Callback</servlet-name>
+        <url-pattern>/oauth2callback/Twicth</url-pattern> 
+    </servlet-mapping>
+  
+
 
 </web-app>
