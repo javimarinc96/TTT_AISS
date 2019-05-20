@@ -27,6 +27,16 @@
     <servlet-name>YoutubeSearchController</servlet-name>
     <url-pattern>/YoutubeSearch</url-pattern>
   </servlet-mapping>
+  
+  
+   <servlet>
+    <servlet-name>YoutubeAddCommentController</servlet-name>
+    <servlet-class>aiss.controller.YoutubeAddCommentController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>YoutubeAddCommentController</servlet-name>
+    <url-pattern>/YoutubeAddComment</url-pattern>
+  </servlet-mapping>
 	
 	<!--  OAUTH SERVLETS 
   

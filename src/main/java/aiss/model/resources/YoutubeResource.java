@@ -6,7 +6,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.restlet.resource.ClientResource;
+import org.restlet.resource.ResourceException;
 
+
+import aiss.model.youtube.CommentThreads;
 import aiss.model.youtube.Search;
 
 public class YoutubeResource {
@@ -15,6 +18,7 @@ public class YoutubeResource {
 	private static final Logger log = Logger.getLogger(YoutubeResource.class.getName());
 	private final String access_token;
     private final String uri = "https://www.googleapis.com/youtube/v3/search";
+    private final String uri2 = "https://www.googleapis.com/youtube/v3/commentThreads";
 	
 	
     public YoutubeResource(String access_token) {
@@ -22,8 +26,7 @@ public class YoutubeResource {
     }
 	
     
-    
-	public Search getSearch(String query) throws UnsupportedEncodingException {
+	public Search getSearch (String query) throws UnsupportedEncodingException {
 
 		//Asegurarnos que la cadena esta en el formato correcto
 		
@@ -50,4 +53,25 @@ public class YoutubeResource {
 		
 	    return youtubeSearch;
 	}
+	
+	
+	public CommentThreads insertTopComment (CommentThreads comment) {
+		
+		ClientResource cr = null;
+		CommentThreads res = null;
+		
+		try {
+			String url = uri2+"?part=snippet&access_token="+access_token;
+			
+			cr = new ClientResource(url);
+			cr.setEntityBuffering(true);		// Needed for using RESTlet from JUnit tests
+			res = cr.post(comment,CommentThreads.class);
+			
+		} catch (ResourceException re) {
+			System.err.println("Error when adding the comment: " + cr.getResponse().getStatus());
+		}
+		
+		return res;
+	}
+	
 }
