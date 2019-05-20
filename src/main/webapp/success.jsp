@@ -19,11 +19,13 @@
 <legend>Youtube search for <c:out value="${param.query}"/></legend>
 
 
-<c:forEach items="${requestScope.items}" var="item">
-	<span>Video title: <c:out value="${item.snippet.title}"/></span><br/>
+<c:forEach items="${items}" var="item">
+	<h2><c:out value="${item.snippet.title}"/></h2><br/>
+	<iframe src= "http://www.youtube.com/embed/${item.id.videoId}"></iframe> 
 </c:forEach>
 
 </fieldset>
+
 
 </body>
 </html>

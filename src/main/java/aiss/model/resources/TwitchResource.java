@@ -10,8 +10,8 @@ import org.restlet.resource.ClientResource;
 
 import aiss.model.twitch.Streams;
 
-public class TwitchResources {
-	private static final Logger log = Logger.getLogger(TwitchResources.class.getName());
+public class TwitchResource {
+	private static final Logger log = Logger.getLogger(TwitchResource.class.getName());
 	
 	public Streams getStreams(String user_id) throws UnsupportedEncodingException {
 		//Asegurarnos que la cadena esta en el formato correcto

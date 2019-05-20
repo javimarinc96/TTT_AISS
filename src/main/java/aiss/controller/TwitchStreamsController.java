@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import aiss.model.resources.TwitchResources;
+import aiss.model.resources.TwitchResource;
 import aiss.model.resources.YoutubeResource;
 import aiss.model.twitch.Streams;
 import aiss.model.youtube.Search;
@@ -42,7 +42,7 @@ public class TwitchStreamsController extends HttpServlet {
 		
 		// Search for twitch streams
 		log.log(Level.FINE, "Searching for first streams:");
-		TwitchResources twitch = new TwitchResources();
+		TwitchResource twitch = new TwitchResource();
 		Streams twitchResults = twitch.getStreams(user_id);
 
 		if (twitchResults!=null){
