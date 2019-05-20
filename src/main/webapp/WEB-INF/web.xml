@@ -27,6 +27,15 @@
     <servlet-name>YoutubeSearchController</servlet-name>
     <url-pattern>/YoutubeSearch</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>TwitchStreamsController</servlet-name>
+    <servlet-class>aiss.controller.TwitchStreamsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TwitchStreamsController</servlet-name>
+    <url-pattern>/TwitchStreams</url-pattern>
+  </servlet-mapping>
 	
 	<!--  OAUTH SERVLETS 
   
@@ -83,6 +92,42 @@
     <servlet-mapping>
         <servlet-name>YoutubeOAuth2Callback</servlet-name>
         <url-pattern>/oauth2callback/Youtube</url-pattern> 
+    </servlet-mapping>
+    
+    <!--   Twitch oAuth2 servlets    -->
+    
+    <!--TwitchAuthController-->
+    <servlet>
+        <description/>
+        <servlet-name>TwitchAuthController</servlet-name>
+        <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>Twitch</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TwitchAuthController</servlet-name>
+        <url-pattern>/AuthController/Twitch</url-pattern>
+    </servlet-mapping>
+    
+    <!--TwitchOAuth2Callback-->
+    <servlet>
+        <description/>
+        <servlet-name>TwitchOAuth2Callback</servlet-name>
+        <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>Twitch</param-value>
+        </init-param>
+        <init-param>
+            <param-name>onSuccess</param-name>
+            <param-value>redirect:/TwitchStreams</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TwitchOAuth2Callback</servlet-name>
+        <url-pattern>/oauth2callback/Twitch</url-pattern> 
     </servlet-mapping>
   
 
