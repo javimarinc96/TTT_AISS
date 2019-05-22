@@ -16,23 +16,25 @@ import aiss.model.twitch.Streams;
 /**
  * Servlet implementation class StreamsController
  */
-public class TwitchStreamsController extends HttpServlet {
+public class TwitchUserStreamsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-	private static final Logger log = Logger.getLogger(TwitchStreamsController.class.getName());
-	 
-    /**
+
+	private static final Logger log = Logger.getLogger(TwitchGameStreamsController.class.getName());
+
+	/**
      * @see HttpServlet#HttpServlet()
      */
-    public TwitchStreamsController() {
+    public TwitchUserStreamsController() {
         super();
     }
-    
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    		throws ServletException, IOException {
+
     	RequestDispatcher rd = null;
     	String query = request.getParameter("query");
     	System.out.println(query);
@@ -44,12 +46,12 @@ public class TwitchStreamsController extends HttpServlet {
     	log.log(Level.FINE, "Searching for user streams" + query);
     	log.log(Level.FINE, "token" + accessToken);
     	TwitchResource Twitch=new TwitchResource(accessToken);
-    	Streams TwitchfirstSearch = Twitch.getfirst();
+    	Streams TwitchUserSearch = Twitch.getUserStream(query);
 
-    	if (TwitchfirstSearch != null) {
+    	if (TwitchUserSearch != null) {
     			log.info("");
-				request.setAttribute("data", TwitchfirstSearch.getData());
-				rd = request.getRequestDispatcher("/success.jsp");
+				request.setAttribute("data", TwitchUserSearch.getData());
+				rd = request.getRequestDispatcher("/Usersuccess.jsp");
 			} else {
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
 				rd = request.getRequestDispatcher("/AuthController/Twitch");
@@ -58,11 +60,14 @@ public class TwitchStreamsController extends HttpServlet {
 			 log.info("Trying to access Twitch without an access token, redirecting to OAuth servlet");
 			 rd = request.getRequestDispatcher("/AuthController/Twitch");
 		}
-			
-	rd.forward(request, response);
-	}
-    
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+			rd.forward(request, response);
+		}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
-	}
+	}	
 }
+
+

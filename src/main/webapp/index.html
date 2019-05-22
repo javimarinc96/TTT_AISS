@@ -10,8 +10,16 @@
 <h1>TTT PROJECT</h1>
 
 	<div id="searchDiv">
-		<form id="searchForm" action="TwitchStreamsController" method="post">
-			User_id: <input type="text" name="user_id" required/> 
+		<form id="searchForm" action="YoutubeSearch" method="post">
+			Keyword: <input type="text" name="query" required/> 
+			<input type="submit" name="searchBtn" title="search" value="search">
+		</form>
+	</div>
+<h3>SEARCH FOR TWITCH STREAM</h3>
+
+        <div id="searchDiv">
+		<form id="searchForm" action="TwitchUserSearch" method="post">
+			User Name: <input type="text" name="query" required/> 
 			<input type="submit" name="searchBtn" title="search" value="search">
 		</form>
 	</div>
