@@ -12,6 +12,7 @@ import aiss.model.twitch.Streams;
 import aiss.model.youtube.Search;
 
 public class TwitchResource {
+	
 	private static final Logger log = Logger.getLogger(TwitchResource.class.getName());
 	private final String access_token;
     private final String uri = "https://api.twitch.tv/kraken/streams";
