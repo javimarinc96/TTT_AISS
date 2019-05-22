@@ -43,6 +43,8 @@ public class YoutubeSearchController extends HttpServlet {
 		
 		String accessToken = (String) request.getSession().getAttribute("Youtube-token");
 		
+		
+		
 		if (accessToken != null && !"".equals(accessToken)) {
 			
 			// Search for videos on youtube

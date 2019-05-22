@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import aiss.model.resources.YoutubeResource;
 import aiss.model.youtube.CommentThreads;
+import aiss.model.youtube.SnippetThread;
+import aiss.model.youtube.SnippetTopLevelComment;
 import aiss.model.youtube.TopLevelComment;
 
 /**
@@ -38,15 +40,26 @@ public class YoutubeAddCommentController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
 		RequestDispatcher rd = null;
+		
 		String videoId = request.getParameter("videoId");
 		String texto = request.getParameter("texto");
 		
-		CommentThreads nuevo = new CommentThreads();
-		nuevo.getSnippet().setVideoId(videoId);
-		TopLevelComment comment = nuevo.getSnippet().getTopLevelComment();
-		comment.getSnippet().setTextOriginal(texto);
-		nuevo.getSnippet().setTopLevelComment(comment);
+		System.out.println("ID DEL VIDEO:" +videoId);
+		System.out.println("TEXTO:" + texto);
 		
+		CommentThreads nuevo = new CommentThreads();
+		SnippetThread snippetTh = new SnippetThread();
+		TopLevelComment topcom = new TopLevelComment();
+		SnippetTopLevelComment snip2 = new SnippetTopLevelComment();
+		
+		//setear videoID
+		snippetTh.setVideoId(videoId);
+		//setear texto original
+		snip2.setTextOriginal(texto);
+		topcom.setSnippet(snip2);
+		snippetTh.setTopLevelComment(topcom);
+		//Setear todo al nuevo comment thread
+		nuevo.setSnippet(snippetTh);
 		
 		String accessToken = (String) request.getSession().getAttribute("Youtube-token");
 		
@@ -59,19 +72,18 @@ public class YoutubeAddCommentController extends HttpServlet {
 			CommentThreads res = youtube.insertTopComment(nuevo);
 			
 			if (res!=null){
-				log.info("ok");
-				//request.setAttribute("items", youtubeSearch.getItems());
-				rd = request.getRequestDispatcher("/success.jsp");
+				log.info("Comentario creado correctamente");
+				request.setAttribute("message", "Comentario añadido correctamente");
+				rd = request.getRequestDispatcher("/index.html");
 			} else {
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
 				rd = request.getRequestDispatcher("/AuthController/Youtube");
 			}
 			
 		}else{
-			 log.info("Trying to access Google Drive without an access token, redirecting to OAuth servlet");
+			 log.info("Trying to access Youtube without an access token, redirecting to OAuth servlet");
 			 rd = request.getRequestDispatcher("/AuthController/Youtube");
 		}
-		
 		
 		rd.forward(request, response);
 	}

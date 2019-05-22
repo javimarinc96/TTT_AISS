@@ -45,11 +45,19 @@ public class YoutubeResource {
 		
 		//Pedir al servicio restful el recurso que queremos (lo devuelve en json)
 		
-		ClientResource cr = new ClientResource(url);
+		ClientResource cr = null;
+		Search youtubeSearch = null;
 		
-		//Convertir ese recurso en formato java
-		
-		Search youtubeSearch = cr.get(Search.class);
+		try {
+			cr = new ClientResource(url);
+			//Convertir ese recurso en formato java
+			System.out.println("Client Resource:"+cr);
+			youtubeSearch = cr.get(Search.class);
+		} catch (ResourceException re) {
+		youtubeSearch = null;
+		System.err.println("Error when retrieving all songs: " + cr.getResponse().getStatus());
+		return null;
+		}
 		
 	    return youtubeSearch;
 	}
@@ -60,9 +68,9 @@ public class YoutubeResource {
 		ClientResource cr = null;
 		CommentThreads res = null;
 		
+		String url = uri2+"?part=snippet&access_token="+access_token;
+		
 		try {
-			String url = uri2+"?part=snippet&access_token="+access_token;
-			
 			cr = new ClientResource(url);
 			cr.setEntityBuffering(true);		// Needed for using RESTlet from JUnit tests
 			res = cr.post(comment,CommentThreads.class);
