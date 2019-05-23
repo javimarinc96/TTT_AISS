@@ -19,7 +19,7 @@ import aiss.model.twitch.Streams;
 public class TwitchUserStreamsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static final Logger log = Logger.getLogger(TwitchGameStreamsController.class.getName());
+	private static final Logger log = Logger.getLogger(TwitchUserStreamsController.class.getName());
 
 	/**
      * @see HttpServlet#HttpServlet()
@@ -39,18 +39,18 @@ public class TwitchUserStreamsController extends HttpServlet {
     	String query = request.getParameter("query");
     	System.out.println(query);
     	
-    	String accessToken = (String) request.getSession().getAttribute("twitch-token");
+    	String accessToken = (String) request.getSession().getAttribute("Twitch-token");
     	
     	if (accessToken != null && !"".equals(accessToken)) {
     	// Search for user streams on Twitch
     	log.log(Level.FINE, "Searching for user streams" + query);
     	log.log(Level.FINE, "token" + accessToken);
-    	TwitchResource Twitch=new TwitchResource(accessToken);
-    	Streams TwitchUserSearch = Twitch.getUserStream(query);
+    	TwitchResource twitch = new TwitchResource(accessToken);
+    	Streams twitchUserSearch = twitch.getUserStream(query);
 
-    	if (TwitchUserSearch != null) {
+    	if (twitchUserSearch != null) {
     			log.info("");
-				request.setAttribute("data", TwitchUserSearch.getData());
+				request.setAttribute("data", twitchUserSearch.getData());
 				rd = request.getRequestDispatcher("/Usersuccess.jsp");
 			} else {
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
@@ -64,8 +64,7 @@ public class TwitchUserStreamsController extends HttpServlet {
 			rd.forward(request, response);
 		}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}	
 }

@@ -25,6 +25,6 @@
         "clientId": "ctj1gvwlo2uf6u9l4r3y2gpy6sddow",
         "clientSecret": "3jid7bmi05m13woyjhb1ahahx5hjr1",
         "authorizationFormUrl": "https://id.twitch.tv/oauth2/authorize",
-        "scopes": []
+        "scopes": ["user:read:email"]
     }
 }		

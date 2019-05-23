@@ -15,7 +15,7 @@ public class TwitchResource {
 	
 	private static final Logger log = Logger.getLogger(TwitchResource.class.getName());
 	private final String access_token;
-    private final String uri = "https://api.twitch.tv/kraken/streams";
+    private final String uri = "https://api.twitch.tv/helix/streams";
 
     public TwitchResource(String access_token) {
     	 this.access_token = access_token;
@@ -44,17 +44,17 @@ public class TwitchResource {
 	    return TwitchStream;
 	}
 	
-	public Streams getUserStream(String user_login) throws UnsupportedEncodingException {
+	public Streams getUserStream(String user0) throws UnsupportedEncodingException {
 		//Asegurarnos que la cadena esta en el formato correcto
 		
-		String user_login2 = URLEncoder.encode(user_login,"UTF-8");
+		String user = URLEncoder.encode(user0,"UTF-8");
 				
-		log.log(Level.FINE, "user_login: ", user_login2);
+		log.log(Level.FINE, "user_login: ", user);
 		log.log(Level.FINE, "token: ", this.access_token);
 		
 		// Escribir la url de busqueda
 		
-		String url = uri+"?user_login="+user_login2+"&access_token="+access_token;
+		String url = uri + "?access_token=" + access_token +"&user_login=" + user;
 		
 		//Añadimos un log
 		
@@ -66,9 +66,9 @@ public class TwitchResource {
 		
 		//Convertir ese recurso en formato java
 		
-		Streams TwitchStream = cr.get(Streams.class);
+		Streams twitchStream = cr.get(Streams.class);
 		
-	    return TwitchStream;
+	    return twitchStream;
 	}
 	
 	public Streams getGameStreams(String game_id) throws UnsupportedEncodingException {
