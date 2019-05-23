@@ -22,7 +22,6 @@
 <c:forEach items="${requestScope.items}" var="item">
 
 	<h2><c:out value="${item.snippet.title}"/></h2><br/>
-	<c:out value="${item.id.videoId}" />
 	<iframe src= "http://www.youtube.com/embed/${item.id.videoId}"></iframe> 
 	
 	<div id="commentDiv">
