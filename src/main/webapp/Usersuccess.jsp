@@ -21,8 +21,14 @@
 
 <c:forEach items="${data}" var="data">
 	<h2><c:out value="${data.title}"/></h2><br/>
-	<h2><c:out value="${data.id}"/></h2><br/>
-	<iframe src= "https://www.twitch.tv/${data.user_name}"></iframe> 
+	<h2><c:out value="${data.userName}"/></h2><br/>
+	<iframe src="https://player.twitch.tv/?channel=${data.userName}"
+    height="300"
+    width="400"
+    frameborder="0"
+    scrolling="no"
+    allowfullscreen="false">
+</iframe>
 </c:forEach>
 
 </fieldset>
