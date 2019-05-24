@@ -4,19 +4,15 @@ import java.io.UnsupportedEncodingException;
 
 import org.restlet.data.Header;
 import java.net.URLEncoder;
-import java.text.Normalizer.Form;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 import org.restlet.resource.ClientResource;
 import org.restlet.util.Series;
 
-import aiss.model.twitch.StreamData;
 import aiss.model.twitch.Games;
 import aiss.model.twitch.Stream;
+import aiss.model.twitch.Videos;
 
 public class TwitchResource {
 	
@@ -42,7 +38,7 @@ public class TwitchResource {
 		
 		// URL
 		
-		String url = uri + "/streams" + "?access_token=" + access_token + "&game_id=" + id;
+		String url = uri + "/streams" + "?access_token=" + access_token + "&first=2&game_id=" + id;
 		
 		//Añadimos un log
 		
@@ -100,4 +96,43 @@ public class TwitchResource {
 		
 	    return TwitchGame;
 	}
+	
+	public Videos getVideos(String gameName0) throws UnsupportedEncodingException {
+		
+		//FORMATO CORRECTO
+		
+				String id0 = getGameStreams(gameName0).getData().get(0).getId();
+				
+				String id = URLEncoder.encode(id0,"UTF-8");
+				
+				log.log(Level.FINE, "game_id: ", id);
+				log.log(Level.FINE, "token: ", this.access_token);
+				
+				// URL
+				
+				String url = uri + "/videos" + "?access_token=" + access_token + "&first=2&game_id=" + id;
+				
+				//Añadimos un log
+				
+				log.log(Level.FINE, "Twitch search game video URI: ", url);
+				
+				//Pedir al servicio restful el recurso que queremos (lo devuelve en json)
+				
+				ClientResource cr = new ClientResource(url);
+				Series<Header> header = (Series<Header>) cr.getRequestAttributes().get("org.restlet.http.headers");
+				if (header == null) {
+					header = new Series<Header>(Header.class);
+				    cr.getRequestAttributes().put("org.restlet.http.headers", header);
+				}
+				
+				header.set("Client-ID" , clientID);
+				
+				//CREAR CLASE
+				
+				Videos twitchVideo = cr.get(Videos.class);
+
+			    return twitchVideo;
+		
+	}
+	
 }

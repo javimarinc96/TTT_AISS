@@ -11,20 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import aiss.model.resources.TwitchResource;
+import aiss.model.twitch.Games;
 import aiss.model.twitch.Stream;
+import aiss.model.twitch.Videos;
 
 /**
  * Servlet implementation class StreamsController
  */
-public class TwitchStreamController extends HttpServlet {
+public class TwitchController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static final Logger log = Logger.getLogger(TwitchStreamController.class.getName());
+	private static final Logger log = Logger.getLogger(TwitchController.class.getName());
 
 	/**
      * @see HttpServlet#HttpServlet()
      */
-    public TwitchStreamController() {
+    public TwitchController() {
         super();
     }
 
@@ -42,16 +44,20 @@ public class TwitchStreamController extends HttpServlet {
     	String accessToken = (String) request.getSession().getAttribute("Twitch-token");
     	
     	if (accessToken != null && !"".equals(accessToken)) {
-    	// Search for game streams on Twitch
-    	log.log(Level.FINE, "Searching for game streams" + query);
+    	// Search for videos and streams on Twitch
+    	log.log(Level.FINE, "Searching for videos and streams" + query);
     	log.log(Level.FINE, "token" + accessToken);
     	TwitchResource twitch = new TwitchResource(accessToken);
     	Stream twitchGameSearch = twitch.getStreams(query);
+    	Games twitchGame = twitch.getGameStreams(query);
+    	Videos twitchVideo = twitch.getVideos(query);
 
     	if (twitchGameSearch != null) {
     			log.info("");
 				request.setAttribute("data", twitchGameSearch.getData());
-				rd = request.getRequestDispatcher("/gameSuccess.jsp");
+				request.setAttribute("gdata", twitchGame.getData());
+				request.setAttribute("vdata", twitchVideo.getData());
+				rd = request.getRequestDispatcher("/twitchSuccess.jsp");
 			} else {
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
 				rd = request.getRequestDispatcher("/AuthController/Twitch");

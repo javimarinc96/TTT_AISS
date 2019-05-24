@@ -1,6 +1,7 @@
 package aiss.model.twitch;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -11,18 +12,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-"id",
-"name",
-"box_art_url"
+"data",
+"pagination"
 })
-public class GameData {
+public class Videos {
 
-@JsonProperty("id")
-private String id;
-@JsonProperty("name")
-private String name;
-@JsonProperty("box_art_url")
-private String boxArtUrl;
+@JsonProperty("data")
+private List<VideoData> data = null;
+@JsonProperty("pagination")
+private Pagination pagination;
 @JsonIgnore
 private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -30,50 +28,38 @@ private Map<String, Object> additionalProperties = new HashMap<String, Object>()
 * No args constructor for use in serialization
 * 
 */
-public GameData() {
+public Videos() {
 }
 
 /**
 * 
-* @param id
-* @param name
-* @param boxArtUrl
+* @param data
+* @param pagination
 */
-public GameData(String id, String name, String boxArtUrl) {
+public Videos(List<VideoData> data, Pagination pagination) {
 super();
-this.id = id;
-this.name = name;
-this.boxArtUrl = boxArtUrl;
+this.data = data;
+this.pagination = pagination;
 }
 
-@JsonProperty("id")
-public String getId() {
-return id;
+@JsonProperty("data")
+public List<VideoData> getData() {
+return data;
 }
 
-@JsonProperty("id")
-public void setId(String id) {
-this.id = id;
+@JsonProperty("data")
+public void setData(List<VideoData> data) {
+this.data = data;
 }
 
-@JsonProperty("name")
-public String getName() {
-return name;
+@JsonProperty("pagination")
+public Pagination getPagination() {
+return pagination;
 }
 
-@JsonProperty("name")
-public void setName(String name) {
-this.name = name;
-}
-
-@JsonProperty("box_art_url")
-public String getBoxArtUrl() {
-return boxArtUrl.replace("{width}x{height}", "130x173");
-}
-
-@JsonProperty("box_art_url")
-public void setBoxArtUrl(String boxArtUrl) {
-this.boxArtUrl = boxArtUrl;
+@JsonProperty("pagination")
+public void setPagination(Pagination pagination) {
+this.pagination = pagination;
 }
 
 @JsonAnyGetter
