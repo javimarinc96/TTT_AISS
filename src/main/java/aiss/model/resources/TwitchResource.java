@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 
 import org.restlet.data.Header;
 import java.net.URLEncoder;
+import java.text.Normalizer.Form;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -66,6 +67,9 @@ public class TwitchResource {
 		//Pedir al servicio restful el recurso que queremos (lo devuelve en json)
 		
 		ClientResource cr = new ClientResource(url);
+//		Form headers = (Form) cr.getRequestAttributes().get("org.restlet.http.headers");
+//		Series<Header> header = cr.getRequestAttributes().get("org.restlet.http.headers");
+//		headers.set("Client-ID" , "ctj1gvwlo2uf6u9l4r3y2gpy6sddow");
 		
 		Series<Header> header = (Series<Header>) cr.getRequestAttributes().get("org.restlet.http.headers");
 		if (header == null) {
