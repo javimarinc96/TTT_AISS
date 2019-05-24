@@ -93,6 +93,7 @@ public class TwitchResource {
 		
 		header.set("Client-ID" , clientID);
 		
+		
 		//Convertir ese recurso en formato java
 		
 		Games TwitchGame = cr.get(Games.class);
