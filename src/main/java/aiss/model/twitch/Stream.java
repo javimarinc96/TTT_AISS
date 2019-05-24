@@ -15,10 +15,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 "data",
 "pagination"
 })
-public class Streams {
+public class Stream {
 
 @JsonProperty("data")
-private List<DatumStreams> data = null;
+private List<StreamData> data = null;
 @JsonProperty("pagination")
 private Pagination pagination;
 @JsonIgnore
@@ -28,7 +28,7 @@ private Map<String, Object> additionalProperties = new HashMap<String, Object>()
 * No args constructor for use in serialization
 * 
 */
-public Streams() {
+public Stream() {
 }
 
 /**
@@ -36,19 +36,19 @@ public Streams() {
 * @param data
 * @param pagination
 */
-public Streams(List<DatumStreams> data, Pagination pagination) {
+public Stream(List<StreamData> data, Pagination pagination) {
 super();
 this.data = data;
 this.pagination = pagination;
 }
 
 @JsonProperty("data")
-public List<DatumStreams> getData() {
+public List<StreamData> getData() {
 return data;
 }
 
 @JsonProperty("data")
-public void setData(List<DatumStreams> data) {
+public void setData(List<StreamData> data) {
 this.data = data;
 }
 

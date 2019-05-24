@@ -20,12 +20,12 @@
     <url-pattern>/YoutubeSearch</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>TwitchUserStreamsController</servlet-name>
-    <servlet-class>aiss.controller.TwitchUserStreamsController</servlet-class>
+    <servlet-name>TwitchStreamController</servlet-name>
+    <servlet-class>aiss.controller.TwitchStreamController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>TwitchUserStreamsController</servlet-name>
-    <url-pattern>/TwitchUserSearch</url-pattern>
+    <servlet-name>TwitchStreamController</servlet-name>
+    <url-pattern>/TwitchStreamSearch</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -82,7 +82,7 @@
     </init-param>
     <init-param>
       <param-name>onSuccess</param-name>
-      <param-value>redirect:/twitchUserSearch</param-value>
+      <param-value>redirect:/TwitchStreamSearch</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>

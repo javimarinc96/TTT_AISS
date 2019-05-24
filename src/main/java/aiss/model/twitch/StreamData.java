@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 "language",
 "thumbnail_url"
 })
-public class DatumStreams {
+public class StreamData {
 
 @JsonProperty("id")
 private String id;
@@ -51,7 +51,7 @@ private Map<String, Object> additionalProperties = new HashMap<String, Object>()
 * No args constructor for use in serialization
 * 
 */
-public DatumStreams() {
+public StreamData() {
 }
 
 /**
@@ -67,7 +67,7 @@ public DatumStreams() {
 * @param language
 * @param type
 */
-public DatumStreams(String id, String userId, String userName, String gameId, String type, String title, String viewerCount, String startedAt, String language, String thumbnailUrl) {
+public StreamData(String id, String userId, String userName, String gameId, String type, String title, String viewerCount, String startedAt, String language, String thumbnailUrl) {
 super();
 this.id = id;
 this.userId = userId;

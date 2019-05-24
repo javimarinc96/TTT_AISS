@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Games {
 
 @JsonProperty("data")
-private List<DatumGames> data = null;
+private List<GameData> data = null;
 @JsonIgnore
 private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -32,18 +32,18 @@ public Games() {
 * 
 * @param data
 */
-public Games(List<DatumGames> data) {
+public Games(List<GameData> data) {
 super();
 this.data = data;
 }
 
 @JsonProperty("data")
-public List<DatumGames> getData() {
+public List<GameData> getData() {
 return data;
 }
 
 @JsonProperty("data")
-public void setData(List<DatumGames> data) {
+public void setData(List<GameData> data) {
 this.data = data;
 }
 

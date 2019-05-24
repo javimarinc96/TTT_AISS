@@ -1,4 +1,3 @@
-
 package aiss.model.twitch;
 
 import java.util.HashMap;
@@ -16,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 "name",
 "box_art_url"
 })
-public class DatumGames {
+public class GameData {
 
 @JsonProperty("id")
 private String id;
@@ -31,7 +30,7 @@ private Map<String, Object> additionalProperties = new HashMap<String, Object>()
 * No args constructor for use in serialization
 * 
 */
-public DatumGames() {
+public GameData() {
 }
 
 /**
@@ -40,7 +39,7 @@ public DatumGames() {
 * @param name
 * @param boxArtUrl
 */
-public DatumGames(String id, String name, String boxArtUrl) {
+public GameData(String id, String name, String boxArtUrl) {
 super();
 this.id = id;
 this.name = name;

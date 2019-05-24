@@ -20,9 +20,15 @@
 
 
 <c:forEach items="${data}" var="data">
+	<h2><c:out value="${data.userName}"/></h2><br/>
 	<h2><c:out value="${data.title}"/></h2><br/>
-	<h2><c:out value="${data.id}"/></h2><br/>
-	<iframe src= "https://www.twitch.tv/${data.user_name}"></iframe> 
+	<iframe src="https://player.twitch.tv/?channel=${data.userName}&autoplay=false"
+    height="600"
+    width="800"
+    frameborder="0"
+    scrolling="no"
+    allowfullscreen="false">
+</iframe>
 </c:forEach>
 
 </fieldset>

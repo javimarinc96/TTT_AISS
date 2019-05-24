@@ -11,20 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import aiss.model.resources.TwitchResource;
-import aiss.model.twitch.Streams;
+import aiss.model.twitch.Stream;
 
 /**
  * Servlet implementation class StreamsController
  */
-public class TwitchUserStreamsController extends HttpServlet {
+public class TwitchStreamController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static final Logger log = Logger.getLogger(TwitchUserStreamsController.class.getName());
+	private static final Logger log = Logger.getLogger(TwitchStreamController.class.getName());
 
 	/**
      * @see HttpServlet#HttpServlet()
      */
-    public TwitchUserStreamsController() {
+    public TwitchStreamController() {
         super();
     }
 
@@ -42,16 +42,16 @@ public class TwitchUserStreamsController extends HttpServlet {
     	String accessToken = (String) request.getSession().getAttribute("Twitch-token");
     	
     	if (accessToken != null && !"".equals(accessToken)) {
-    	// Search for user streams on Twitch
-    	log.log(Level.FINE, "Searching for user streams" + query);
+    	// Search for game streams on Twitch
+    	log.log(Level.FINE, "Searching for game streams" + query);
     	log.log(Level.FINE, "token" + accessToken);
     	TwitchResource twitch = new TwitchResource(accessToken);
-    	Streams twitchUserSearch = twitch.getUserStream(query);
+    	Stream twitchGameSearch = twitch.getStreams(query);
 
-    	if (twitchUserSearch != null) {
+    	if (twitchGameSearch != null) {
     			log.info("");
-				request.setAttribute("data", twitchUserSearch.getData());
-				rd = request.getRequestDispatcher("/Usersuccess.jsp");
+				request.setAttribute("data", twitchGameSearch.getData());
+				rd = request.getRequestDispatcher("/gameSuccess.jsp");
 			} else {
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
 				rd = request.getRequestDispatcher("/AuthController/Twitch");
