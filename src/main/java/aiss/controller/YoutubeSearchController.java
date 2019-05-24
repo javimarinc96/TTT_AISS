@@ -50,7 +50,8 @@ public class YoutubeSearchController extends HttpServlet {
 			log.log(Level.FINE, "token" + accessToken);
 			YoutubeResource youtube = new YoutubeResource(accessToken);
 			Search youtubeSearch = youtube.getSearch(query);
-			
+			//en el controlador se comprueba si estas logueado en las 3 APIS , si estas se lanza, si no, se manda al usuario a pagina aviso de login
+			//vista con 3 enlaces a las vistas de 
 			if (youtubeSearch!=null){
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
 				request.setAttribute("items", youtubeSearch.getItems());

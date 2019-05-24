@@ -1,6 +1,7 @@
 body {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	margin-left: 30px;
+	background-image: url("http://cavadgaming.com/home/wp-content/uploads/2016/12/IMG_29049.png");
 }
 
 
@@ -64,7 +65,7 @@ h1 {
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
     display: inline-block;
     font-size: 16px;
     cursor: pointer;

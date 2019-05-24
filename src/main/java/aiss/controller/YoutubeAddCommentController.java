@@ -74,7 +74,7 @@ public class YoutubeAddCommentController extends HttpServlet {
 			if (res!=null){
 				log.info("Comentario creado correctamente");
 				request.setAttribute("message", "Comentario añadido correctamente");
-				rd = request.getRequestDispatcher("/index.html");
+				rd = request.getRequestDispatcher("/index.jsp");
 			} else {
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
 				rd = request.getRequestDispatcher("/AuthController/Youtube");
