@@ -25,7 +25,7 @@ import java.net.URI;
 import java.util.Collection;
 
 
-@Path("/VideoGames")
+@Path("/videoGames")
 public class VideoGameResource {
 	
 

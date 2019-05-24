@@ -26,7 +26,7 @@ import aiss.api.model.repository.MapCompanyRepository;
 import aiss.api.model.repository.CompanyRepository;
 
 
-@Path("/lists")
+@Path("/companies")
 public class CompanyResource {
 	
 	/* Singleton */
