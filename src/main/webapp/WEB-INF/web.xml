@@ -15,9 +15,52 @@
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	 <!--WEBAPP SERVLET-->
+	 <servlet>
+    <servlet-name>TwitterController</servlet-name>
+    <servlet-class>aiss.twittercontrollersearch.TwitterController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TwitterController</servlet-name>
+    <url-pattern>/TwitterSearch</url-pattern>
+  </servlet-mapping>
+  
+	 <!--TwitterAuthController-->
+    <servlet>
+        <description/>
+        <servlet-name>TwitterAuthController</servlet-name>
+        <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>Twitter</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TwitterAuthController</servlet-name>
+        <url-pattern>/AuthController/Twitter</url-pattern>
+    </servlet-mapping>
+    
+    <!--TwitterOAuth2Callback-->
+    <servlet>
+        <description/>
+        <servlet-name>TwitterOAuth2Callback</servlet-name>
+        <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
+        <init-param>
+            <param-name>provider</param-name>
+            <param-value>Twitter</param-value>
+        </init-param>
+        <init-param>
+            <param-name>onSuccess</param-name>
+            <param-value>redirect:/index.html</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TwitterOAuth2Callback</servlet-name>
+        <url-pattern>/oauth2callback/Twitter</url-pattern> 
+    </servlet-mapping>
 	
 	<!--  OAUTH SERVLETS 
-  
+  // Hola
   	For each OAuth 2.0 service, you need to create two servlets: one for the initiation 
   	and another for the callback. After sucess the token for the provider will be available
   	in the session scope under the name <provider>-token. E.g.: Spotify-token.

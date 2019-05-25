@@ -52,7 +52,7 @@ public class OAuthRegistry {
 	 * @param clientSecret
 	 * @param authorizationFormURL
 	 * @param scopes
-	 * @return authorizatin flow
+	 * @return authorization flow
 	 * @throws IOException
 	 */
 	public static AuthorizationCodeFlow initializeFlow(String tokenURL, String clientID, String clientSecret, String authorizationFormURL,Set<String> scopes) throws IOException {

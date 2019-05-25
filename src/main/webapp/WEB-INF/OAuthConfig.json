@@ -1,0 +1,10 @@
+
+{
+ 	"Twitter":{
+		"tokenUrl":"https://api.twitter.com/oauth2/token",
+		"clientId":"1122553569545207808-Xq6ad1wNPZritYK4hF6DCeFEcZI6jf",
+		"clientSecret":"AQOGWG8WGoTkPNAW6MPb88DxE0rQ4krnnkeM6phpYiiDB" ,
+		"authorizationFormUrl":"https://api.twitter.com/oauth/authorize",
+		"scopes":["Read-only"]
+	}
+}		
