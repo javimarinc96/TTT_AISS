@@ -16,7 +16,7 @@
 
 <fieldset id="youtube">
 
-<legend>Youtube search for <c:out value="${param.query}"/></legend>
+<legend>Youtube search for: <c:out value="${param.query}"/></legend>
 
 
 <c:forEach items="${requestScope.items}" var="item">
@@ -43,7 +43,7 @@
 
 <c:forEach items="${gdata}" var="gdata">
 
-<legend><c:out value="${param.query}"/></legend>
+<legend>Twitch search for: <c:out value="${param.query}"/></legend>
 <img src="${gdata.boxArtUrl}">
 </c:forEach>
 

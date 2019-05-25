@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h3>Search failed, please <a href="index.html">try again </a>.</h3>
+<h3>Por favor, haz login en las 3 APIS antes de realizar tu busqueda</h3>
 
    <table>
       <tr>
@@ -22,7 +22,9 @@
       </tr>
     </table>
     
-    <a href="/index.jsp">Back</a>
+    <br/>
+    
+    <a href="/index.jsp">Volver a la busqueda</a>
     
 </body>
 </html>
