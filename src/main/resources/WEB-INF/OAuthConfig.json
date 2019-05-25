@@ -19,5 +19,12 @@
         "clientSecret": "c3fa848c2c7849baa27b787472c4a101",
         "authorizationFormUrl": "https://accounts.spotify.com/authorize",
         "scopes": ["playlist-read-private","playlist-modify-public"]
+    },
+    "Twitch": { 
+        "tokenUrl": "https://id.twitch.tv/oauth2/token",
+        "clientId": "ctj1gvwlo2uf6u9l4r3y2gpy6sddow",
+        "clientSecret": "3jid7bmi05m13woyjhb1ahahx5hjr1",
+        "authorizationFormUrl": "https://id.twitch.tv/oauth2/authorize",
+        "scopes": []
     }
 }		

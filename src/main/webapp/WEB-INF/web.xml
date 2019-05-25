@@ -17,6 +17,17 @@
 	<!-- WEBAPP SERVLETS -->
 	
   <servlet>
+    <servlet-name>HelloWorld</servlet-name>
+    <servlet-class>aiss.HelloWorldServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloWorld</servlet-name>
+    <url-pattern>/helloworld</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
     <servlet-name>YoutubeSearchController</servlet-name>
     <servlet-class>aiss.controller.YoutubeSearchController</servlet-class>
   </servlet>
@@ -24,86 +35,72 @@
     <servlet-name>YoutubeSearchController</servlet-name>
     <url-pattern>/YoutubeSearch</url-pattern>
   </servlet-mapping>
-  
-  
-   <servlet>
-    <servlet-name>YoutubeAddCommentController</servlet-name>
-    <servlet-class>aiss.controller.YoutubeAddCommentController</servlet-class>
+  <servlet>
+    <servlet-name>TwitchController</servlet-name>
+    <servlet-class>aiss.controller.TwitchController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>YoutubeAddCommentController</servlet-name>
-    <url-pattern>/YoutubeAddComment</url-pattern>
+    <servlet-name>TwitchController</servlet-name>
+    <url-pattern>/TwitchSearch</url-pattern>
   </servlet-mapping>
-	
-	<!--  OAUTH SERVLETS 
-  
-  	For each OAuth 2.0 service, you need to create two servlets: one for the initiation 
-  	and another for the callback. After sucess the token for the provider will be available
-  	in the session scope under the name <provider>-token. E.g.: Spotify-token.
-  	
-  	Those servlets support 2 parameters:
-  	 - provider: which is mandatory and specifies the configuration from the OAuthConfig.json file which
-  	    will be applied.
-  	 - onSuccess: which is optional specifies the behaviour of the servlet after an successful 
-  	 	authorization. If you specify close as the value of the parameter, the page will close. If you
-  	 	specify redirect:XXXX, the page will be redirected to XXXX.  
-  	
-  	WARNING: The url-patterns of all the servlets mus be disjoint. 
-  			Our recommendation is that if you expecify X as the provider, the url-pattern of the 
-  			initiation servlet could be	/AuthController/X, and the url-pattern of the callback
-  			 servlet must be /oauth2callback/X.
-  -->
-  
-  
-  
-    <!--   Youtube oAuth2 servlets    -->
-    
-    <!--YoutubeAuthController-->
-    <servlet>
-        <description/>
-        <servlet-name>YoutubeAuthController</servlet-name>
-        <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
-        <init-param>
-            <param-name>provider</param-name>
-            <param-value>Youtube</param-value>
-        </init-param>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>YoutubeAuthController</servlet-name>
-        <url-pattern>/AuthController/Youtube</url-pattern>
-    </servlet-mapping>
-    
-    <!--YoutubeOAuth2Callback-->
-    <servlet>
-        <description/>
-        <servlet-name>YoutubeOAuth2Callback</servlet-name>
-        <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
-        <init-param>
-            <param-name>provider</param-name>
-            <param-value>Youtube</param-value>
-        </init-param>
-        <init-param>
-            <param-name>onSuccess</param-name>
-            <param-value>redirect:/index.jsp</param-value>
-        </init-param>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>YoutubeOAuth2Callback</servlet-name>
-        <url-pattern>/oauth2callback/Youtube</url-pattern> 
-    </servlet-mapping>
-  
-		<servlet>
-		<servlet-name>Resteasy</servlet-name>
-		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
-		<init-param>
-			<param-name>javax.ws.rs.Application</param-name>
-			<param-value>aiss.api.GameApplication</param-value>
-		</init-param>
-	</servlet>		
-	<!-- All calls to /api/xxx will be sent to the resteasy servlet -->
-	<servlet-mapping>
-		<servlet-name>Resteasy</servlet-name>
-		<url-pattern>/api/*</url-pattern>
-	</servlet-mapping>
-
+  <servlet>
+    <description></description>
+    <servlet-name>YoutubeAuthController</servlet-name>
+    <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
+    <init-param>
+      <param-name>provider</param-name>
+      <param-value>Youtube</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>YoutubeAuthController</servlet-name>
+    <url-pattern>/AuthController/Youtube</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>YoutubeOAuth2Callback</servlet-name>
+    <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
+    <init-param>
+      <param-name>provider</param-name>
+      <param-value>Youtube</param-value>
+    </init-param>
+    <init-param>
+      <param-name>onSuccess</param-name>
+      <param-value>redirect:/YoutubeSearch</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>YoutubeOAuth2Callback</servlet-name>
+    <url-pattern>/oauth2callback/Youtube</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>TwitchAuthController</servlet-name>
+    <servlet-class>aiss.controller.oauth.GenericAuthController</servlet-class>
+    <init-param>
+      <param-name>provider</param-name>
+      <param-value>Twitch</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TwitchAuthController</servlet-name>
+    <url-pattern>/AuthController/Twitch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>TwitchOAuth2Callback</servlet-name>
+    <servlet-class>aiss.controller.oauth.OAuth2Callback</servlet-class>
+    <init-param>
+      <param-name>provider</param-name>
+      <param-value>Twitch</param-value>
+    </init-param>
+    <init-param>
+      <param-name>onSuccess</param-name>
+      <param-value>redirect:/TwitchSearch</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TwitchOAuth2Callback</servlet-name>
+    <url-pattern>/oauth2callback/Twitch</url-pattern>
+  </servlet-mapping>
 </web-app>
