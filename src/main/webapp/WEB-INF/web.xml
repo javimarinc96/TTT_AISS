@@ -23,8 +23,8 @@
     <servlet-name>YoutubeSearchController</servlet-name>
     <url-pattern>/YoutubeSearch</url-pattern>
   </servlet-mapping>
-  <servlet>
   
+  <servlet>
     <servlet-name>TwitchController</servlet-name>
     <servlet-class>aiss.controller.TwitchController</servlet-class>
   </servlet>
@@ -32,6 +32,16 @@
     <servlet-name>TwitchController</servlet-name>
     <url-pattern>/TwitchSearch</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>SearchController</servlet-name>
+    <servlet-class>aiss.controller.SearchController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchController</servlet-name>
+    <url-pattern>/Search</url-pattern>
+  </servlet-mapping>
+
   
   	<!--  OAUTH SERVLETS 
   
@@ -77,7 +87,7 @@
     </init-param>
     <init-param>
       <param-name>onSuccess</param-name>
-      <param-value>redirect:/index.jsp</param-value>
+      <param-value>redirect:/error.jsp</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -109,7 +119,7 @@
     </init-param>
     <init-param>
       <param-name>onSuccess</param-name>
-      <param-value>redirect:/TwitchSearch</param-value>
+      <param-value>redirect:/error.jsp</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>

@@ -15,7 +15,7 @@
 	<p>${message}</p>
 
 	<div id="searchDiv">
-		<form id="searchForm" action="YoutubeSearch" method="post">
+		<form id="searchForm" action="Search" method="post">
 			Introduce tu busqueda: <input type="text" name="query" required/> 
 			<button type="submit" class="button">Buscar</button>
 		</form>
