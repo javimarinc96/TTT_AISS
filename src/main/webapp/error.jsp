@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Error page</title>
-<link rel="stylesheet" type="text/css" href="css/Error.css">
+<link rel="stylesheet" type="text/css" href="css/Style.css">
 </head>
 <body>
 <div id="error">
@@ -29,6 +29,6 @@
   línea <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  	</div>
 
-	  
+	<img id=logo2 src=https://cdn.discordapp.com/attachments/470003850343088129/582273533640441856/Sin_titulo-1.png class="center">
 </body>
 </html>
