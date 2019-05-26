@@ -18,7 +18,7 @@
         <td colspan="2" style="font-weight:bold;">Enlaces de Login:</td>        
       </tr>
       <tr>
-        <td><a href="/AuthController/Youtube">YouTube</a></td>
+        <td><a href="/AuthController/YouTube">YouTube</a></td>
       </tr>
        <tr>
         <td><a href="/AuthController/Twitch">Twitch</a></td>

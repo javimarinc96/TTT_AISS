@@ -20,7 +20,7 @@ public class YoutubeResource {
     private final String uri = "https://www.googleapis.com/youtube/v3/search";
     private final String uri2 = "https://www.googleapis.com/youtube/v3/commentThreads";
 	
-	
+    
     public YoutubeResource(String access_token) {
         this.access_token = access_token;
     }
@@ -34,6 +34,7 @@ public class YoutubeResource {
 		
 		log.log(Level.FINE, "query: ", query2);
 		log.log(Level.FINE, "token: ", this.access_token);
+		System.out.println(this.access_token);
 		
 		// Escribir la url de busqueda
 		
@@ -55,7 +56,7 @@ public class YoutubeResource {
 			youtubeSearch = cr.get(Search.class);
 		} catch (ResourceException re) {
 		youtubeSearch = null;
-		System.err.println("Error when retrieving all songs: " + cr.getResponse().getStatus());
+		System.err.println("Error when retrieving all videos: " + cr.getResponse().getStatus());
 		return null;
 		}
 		

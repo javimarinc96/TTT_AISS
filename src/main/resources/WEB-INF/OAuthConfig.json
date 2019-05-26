@@ -6,10 +6,10 @@
         "authorizationFormUrl": "https://accounts.google.com/o/oauth2/v2/auth",
         "scopes": ["https://www.googleapis.com/auth/drive"]
     },
-    "Youtube": { 
+    "YouTube": { 
         "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-        "clientId": "560079534817-u0ceaemumedl3ul0iqi64jfiuichp4d5.apps.googleusercontent.com",
-        "clientSecret": "fnbkYqJXeZNyND-SSPagfvQO",
+        "clientId": "560079534817-t805ia2jml1hkovl3jj7gkft1qkt9kc8.apps.googleusercontent.com",
+        "clientSecret": "iYvAfGn7V4n3U3VFCuREfRpp",
         "authorizationFormUrl": "https://accounts.google.com/o/oauth2/v2/auth",
         "scopes": ["https://www.googleapis.com/auth/youtube.force-ssl"]
     },
