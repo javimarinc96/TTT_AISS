@@ -28,7 +28,7 @@ public class TwitchResource {
 	public Stream getStreams(String gameName0) throws UnsupportedEncodingException {
 		
 		//FORMATO CORRECTO
-		
+		if (getGameStreams(gameName0)==null) {}
 		String id0 = getGameStreams(gameName0).getData().get(0).getId();
 		
 		String id = URLEncoder.encode(id0,"UTF-8");

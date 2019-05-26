@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+body {
+	background-image: url(https://cdn.discordapp.com/attachments/525354472927526912/582022153457762349/YouTube-icon-our_icon.png);
+	
+	background-size:25%;
+}
+#error{
+  padding: 1px 10px;
+  background-color:#ffffff;
+  margin-left: 17%;
+  margin-right: 15%;
+  margin-top:12%;
+}
+a{font-weight: bold;}
+#volver{ line-height: 0.4;
+}

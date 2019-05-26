@@ -68,6 +68,7 @@
         theme: "dark"
       });
     </script>
+    
 </c:forEach>
 
 </fieldset>
