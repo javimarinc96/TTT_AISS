@@ -19,7 +19,7 @@
 
 <c:forEach items="${gdata}" var="gdata">
 
-<img src="${gdata.boxArtUrl}">
+<img src="${gdata.boxArtUrl}" width="350" height="400">
 <br/>
 Titulo del juego: <c:out value="${gdata.name}"/><br/>
 <br/>
@@ -38,7 +38,9 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 <c:forEach items="${requestScope.items}" var="item">
 
 	<h2><c:out value="${item.snippet.title}"/></h2><br/>
-	<iframe src= "http://www.youtube.com/embed/${item.id.videoId}"></iframe> 
+	<iframe src= "http://www.youtube.com/embed/${item.id.videoId} frameborder="0" allowfullscreen" ></iframe> 
+	 
+
 	
 	<div id="commentDiv">
 	
