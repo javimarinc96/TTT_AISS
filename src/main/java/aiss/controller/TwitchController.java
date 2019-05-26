@@ -49,8 +49,6 @@ public class TwitchController extends HttpServlet {
     	log.log(Level.FINE, "token" + accessToken);
     	TwitchResource twitch = new TwitchResource(accessToken);
     	Games twitchGame = twitch.getGameStreams(query);
-    	if(twitchGame.getData().size()==0) {rd = request.getRequestDispatcher("FalseName.jsp");}
-		else {
     	Stream twitchGameSearch = twitch.getStreams(query);
     	Videos twitchVideo = twitch.getVideos(query);
     	
@@ -65,7 +63,7 @@ public class TwitchController extends HttpServlet {
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
 				rd = request.getRequestDispatcher("/AuthController/Twitch");
 			}
-		}}else{
+		}else{
 			 log.info("Trying to access Twitch without an access token, redirecting to OAuth servlet");
 			 rd = request.getRequestDispatcher("/AuthController/Twitch");
 		}

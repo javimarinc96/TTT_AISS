@@ -26,9 +26,9 @@ public class TwitchResource {
     }
 	
 	public Stream getStreams(String gameName0) throws UnsupportedEncodingException {
+		Stream twitchStream = null;
 		
-		//FORMATO CORRECTO
-		if (getGameStreams(gameName0)==null) {}
+		if (getGameStreams(gameName0).getData().size()!=0){
 		String id0 = getGameStreams(gameName0).getData().get(0).getId();
 		
 		String id = URLEncoder.encode(id0,"UTF-8");
@@ -57,9 +57,10 @@ public class TwitchResource {
 		
 		//CREAR CLASE
 		
-		Stream twitchStream = cr.get(Stream.class);
+		twitchStream = cr.get(Stream.class);
 
-	    return twitchStream;
+		}
+		return twitchStream;
 	}
 	
 	public Games getGameStreams(String gN0) throws UnsupportedEncodingException {
@@ -98,9 +99,10 @@ public class TwitchResource {
 	}
 	
 	public Videos getVideos(String gameName0) throws UnsupportedEncodingException {
+		Videos twitchVideo = null;
 		
 		//FORMATO CORRECTO
-		
+		if (getGameStreams(gameName0).getData().size()!=0){
 				String id0 = getGameStreams(gameName0).getData().get(0).getId();
 				
 				String id = URLEncoder.encode(id0,"UTF-8");
@@ -129,7 +131,8 @@ public class TwitchResource {
 				
 				//CREAR CLASE
 				
-				Videos twitchVideo = cr.get(Videos.class);
+				twitchVideo = cr.get(Videos.class);
+	}
 
 			    return twitchVideo;
 		

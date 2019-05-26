@@ -68,12 +68,16 @@ public class SearchController extends HttpServlet {
 //en el controlador se comprueba si estas logueado en las 3 APIS , si estas se lanza, si no, se manda al usuario a pagina 
 //aviso de login vista con 3 enlaces a las vistas de  login de las 3 apis
 		
-	    	if (youtubeSearch!= null && twitchGameSearch != null){
+	    	if (youtubeSearch!= null && twitchGame != null){
 	    		//cargamos los objetos en la vista de exito
 				request.setAttribute("items", youtubeSearch.getItems());
 				request.setAttribute("data", twitchGameSearch.getData());
 				request.setAttribute("gdata", twitchGame.getData());
 				request.setAttribute("vdata", twitchVideo.getData());
+				rd = request.getRequestDispatcher("/success.jsp");
+			} else if(youtubeSearch!= null && twitchGame == null){
+				request.setAttribute("items", youtubeSearch.getItems());
+				log.info("The game you search is not in Twitch dabatase.");
 				rd = request.getRequestDispatcher("/success.jsp");
 			} else {
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
