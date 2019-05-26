@@ -13,6 +13,21 @@
 
 <body>
 
+<fieldset id="game-data">
+
+
+<c:forEach items="${gdata}" var="gdata">
+
+<img src="${gdata.boxArtUrl}">
+<br/>
+Titulo del juego: <c:out value="${gdata.name}"/><br/>
+<br/>
+Id de Referencia: <c:out value="${gdata.id}"/><br/>
+
+
+</c:forEach>
+
+</fieldset>
 
 <fieldset id="youtube">
 
@@ -41,13 +56,7 @@
 
 <fieldset id="twitch-embed">
 
-<c:forEach items="${gdata}" var="gdata">
-
 <legend>Twitch search for: <c:out value="${param.query}"/></legend>
-
-<img src="${gdata.boxArtUrl}">
-
-</c:forEach>
 
 <c:forEach items="${data}" var="data">
     
