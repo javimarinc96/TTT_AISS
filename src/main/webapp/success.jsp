@@ -32,13 +32,13 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 
 <fieldset id="youtube">
 
-<legend>YouTube videos for: <c:out value="${param.query}"/></legend>
+<legend>Videos de YouTube para: <c:out value="${param.query}"/></legend>
 
 
 <c:forEach items="${requestScope.items}" var="item">
 
 	<h2><c:out value="${item.snippet.title}"/></h2><br/>
-	<iframe src= "http://www.youtube.com/embed/${item.id.videoId} frameborder="0" allowfullscreen" ></iframe> 
+	<iframe src= "http://www.youtube.com/embed/${item.id.videoId}" ></iframe> 
 	 
 
 	
@@ -59,7 +59,7 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 
 <fieldset id="twitch-embed">
 
-<legend>Twitch search for: <c:out value="${param.query}"/></legend>
+<legend>Streams de Twitch para: <c:out value="${param.query}"/></legend>
 
 <c:forEach items="${data}" var="data">
     
@@ -114,17 +114,17 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 
 <fieldset id="aliexpress">
 
-<legend>AliExpress merchandising for: <c:out value="${param.query}"/></legend>
+<legend>Merchandising de AliExpress para: <c:out value="${param.query}"/></legend>
 
 		
 		<c:forEach items="${requestScope.productos}" var="producto" begin="1" end="5">
 		
 			<a target="_blank" href="<c:out value="${producto.productUrl}"/>">${producto.productTitle}</a>
 			<br><br>
-			<img src="<c:out value = "${producto.imageUrl}"/>" height="314"	width="350" />
+			<img src="<c:out value = "${producto.imageUrl}"/>" height="300"	width="350" />
 			<br>
 			<br>
-			<span style="font-size: 24px; font-family: arial; color:#f60; font-weight: 700; align: left; ">
+			<span style="font-size: 24px; font-family: arial; color:#E84B15; font-weight: 700; align: left; ">
 			<c:out value="${producto.localPrice}"/></span>
 			<br>
 			<br>
