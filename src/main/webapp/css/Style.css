@@ -1,0 +1,85 @@
+body {
+	background-image: url("https://cdn-images-1.medium.com/max/1600/1*emDcTv6HiACjfhsgLe_N1w.png");
+	background-size:50%;
+  	background-color:#000000;
+}
+
+/* images*/
+.center {
+  border: 5px solid  red;
+  border-radius:100%;
+  background-color:tomato;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+/* Headers */
+
+h {
+	color: #B40404;
+	font-size: 2em;
+	text-align: center;
+}
+#searchDiv{border: 1px solid  red;
+background-color:black;
+border-radius:10px;
+margin-left: 25%;
+  margin-top:3%;
+  margin-right: 25%;}
+/*bars*/
+
+#searchForm{ 
+  margin-top:3%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom:3%;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1.5;
+   word-spacing: 10px;
+  font-weight: bold;
+  
+}
+input[type=text]{
+  background-color: #ffffff;
+  border-radius: 10px;
+  size:px;
+  
+}
+/* buttons */
+
+.button, .button:visited {
+    background-color: #36E291; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+ 	 text-align: center;
+  line-height: 0.3
+}
+
+.button:hover, .button:active  {
+    background: #FE2E2E;
+  
+}
+
+/*Error.jsp (LOGIN) */
+#error{
+  border: 3px solid  red;
+  padding: 1px 10px;
+  background-color:tomato;
+  margin-left: 17%;
+  margin-right: 15%;
+  margin-top:12%;
+}
+a{font-weight: bold;}
+#volver{ line-height: 0.4;
+}
+#logo2{ margin-top:3%;}

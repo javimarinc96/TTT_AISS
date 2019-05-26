@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>PROJECT TTT</title>
-<link rel="stylesheet" type="text/css" href="css/Index.css">
+<link rel="stylesheet" type="text/css" href="css/Style.css">
 </head>
 <body>
 
