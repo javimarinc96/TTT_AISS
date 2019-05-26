@@ -31,7 +31,7 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 
 <fieldset id="youtube">
 
-<legend>YouTube search for: <c:out value="${param.query}"/></legend>
+<legend>YouTube videos for: <c:out value="${param.query}"/></legend>
 
 
 <c:forEach items="${requestScope.items}" var="item">
@@ -84,10 +84,10 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 
 <c:forEach items="${vdata}" var="vdata">
     
-    <h2><c:out value="${vdata.userName}"/></h2><br/>
-	<h2><c:out value="${vdata.title}"/></h2><br/>
+    Usuario:<h2><c:out value="${vdata.userName}"/></h2><br/>
+	Video:<h2><c:out value="${vdata.title}"/></h2><br/>
 	
- <!-- Add a placeholder for the Twitch embed -->
+ 	<!-- Add a placeholder for the Twitch embed -->
     <div id="twitch-embed"></div>
     
 
@@ -111,7 +111,7 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 
 <fieldset id="aliexpress">
 
-<legend>Aliexpress search for: <c:out value="${param.query}"/></legend>
+<legend>Aliexpress merchandising for: <c:out value="${param.query}"/></legend>
 
 		
 		<c:forEach items="${requestScope.productos}" var="producto" begin="1" end="5">
