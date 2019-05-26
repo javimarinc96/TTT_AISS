@@ -15,6 +15,7 @@
 
 <fieldset id="game-data">
 
+<legend>Informacion del juego</legend>
 
 <c:forEach items="${gdata}" var="gdata">
 
@@ -111,7 +112,7 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 
 <fieldset id="aliexpress">
 
-<legend>Aliexpress merchandising for: <c:out value="${param.query}"/></legend>
+<legend>AliExpress merchandising for: <c:out value="${param.query}"/></legend>
 
 		
 		<c:forEach items="${requestScope.productos}" var="producto" begin="1" end="5">
