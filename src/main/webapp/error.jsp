@@ -5,8 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Error page</title>
+<link rel="stylesheet" type="text/css" href="css/Error.css">
 </head>
 <body>
+
+<div id="error">
 
 <h3>Por favor, haz login en las siguientes APIS antes de realizar tu busqueda</h3>
 
@@ -25,6 +28,8 @@
     <br/>
     
     <a href="/index.jsp">Volver a la busqueda</a>
+    
+ </div>
     
 </body>
 </html>

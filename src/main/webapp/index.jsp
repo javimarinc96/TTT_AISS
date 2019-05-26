@@ -4,19 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>My first mashup</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<title>PROJECT TTT</title>
+<link rel="stylesheet" type="text/css" href="css/Index.css">
 </head>
 <body>
 
 
 <h1>TTT PROJECT</h1>
 
+	<img src=https://cdn.discordapp.com/attachments/470003850343088129/581906848463192085/Sin_titulo-1.png class="center">
+
 	<p>${message}</p>
 
 	<div id="searchDiv">
 		<form id="searchForm" action="Search" method="post">
-			Introduce tu busqueda: <input type="text" name="query" required/> 
+			Introduce el nombre del juego: <input type="text" name="query" required/> 
 			<button type="submit" class="button">Buscar</button>
 		</form>
 	</div>
