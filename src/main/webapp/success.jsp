@@ -16,7 +16,7 @@
 
 <fieldset id="youtube">
 
-<legend>Youtube search for: <c:out value="${param.query}"/></legend>
+<legend>YouTube search for: <c:out value="${param.query}"/></legend>
 
 
 <c:forEach items="${requestScope.items}" var="item">
@@ -44,7 +44,9 @@
 <c:forEach items="${gdata}" var="gdata">
 
 <legend>Twitch search for: <c:out value="${param.query}"/></legend>
+
 <img src="${gdata.boxArtUrl}">
+
 </c:forEach>
 
 <c:forEach items="${data}" var="data">
@@ -98,6 +100,25 @@
 
 </fieldset>
 
+<fieldset id="aliexpress">
+
+<legend>Aliexpress search for: <c:out value="${param.query}"/></legend>
+
+		
+		<c:forEach items="${requestScope.productos}" var="producto" begin="1" end="5">
+		
+			<a target="_blank" href="<c:out value="${producto.productUrl}"/>">${producto.productTitle}</a>
+			<img src="<c:out value = "${producto.imageUrl}"/>" height="314"	width="350" />
+			<br><br>
+			<div style="text-align: center;">
+			<span style="font-size: 24px; font-family: arial; color:#f60; font-weight: 700; align: center; "><c:out value="${producto.localPrice}"/></span>
+			</div>
+			<br>
+			<br>
+			
+		</c:forEach>
+	</fieldset>
+	
 
 </body>
 </html>

@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import aiss.model.aliexpress.AliExpress;
+
+import aiss.model.resources.AliExpressResource;
 import aiss.model.resources.TwitchResource;
 import aiss.model.resources.YoutubeResource;
 import aiss.model.twitch.Games;
@@ -58,12 +61,15 @@ public class SearchController extends HttpServlet {
 			//inicializamos recursos
 			YoutubeResource youtube = new YoutubeResource(youtubeToken);
 			TwitchResource twitch = new TwitchResource(twitchToken);
+			AliExpressResource aliexpress = new AliExpressResource();
+		
 			
 			//obtenemos los objetos de busqueda
 			Search youtubeSearch = youtube.getSearch(query);
 	    	Stream twitchGameSearch = twitch.getStreams(query);
 	    	Games twitchGame = twitch.getGameStreams(query);
 	    	Videos twitchVideo = twitch.getVideos(query);
+			AliExpress aliResults = aliexpress.getProducts(query);
 			
 //en el controlador se comprueba si estas logueado en las 3 APIS , si estas se lanza, si no, se manda al usuario a pagina 
 //aviso de login vista con 3 enlaces a las vistas de  login de las 3 apis
@@ -74,6 +80,7 @@ public class SearchController extends HttpServlet {
 				request.setAttribute("data", twitchGameSearch.getData());
 				request.setAttribute("gdata", twitchGame.getData());
 				request.setAttribute("vdata", twitchVideo.getData());
+				request.setAttribute("productos", aliResults.getResult().getProducts());
 				rd = request.getRequestDispatcher("/success.jsp");
 			} else {
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
