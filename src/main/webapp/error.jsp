@@ -8,11 +8,11 @@
 </head>
 <body>
 
-<h3>Por favor, haz login en las 3 APIS antes de realizar tu busqueda</h3>
+<h3>Por favor, haz login en las siguientes APIS antes de realizar tu busqueda</h3>
 
    <table>
       <tr>
-        <td colspan="2" style="font-weight:bold;">Login Forms:</td>        
+        <td colspan="2" style="font-weight:bold;">Enlaces de Login:</td>        
       </tr>
       <tr>
         <td><a href="/AuthController/Youtube">YouTube</a></td>
