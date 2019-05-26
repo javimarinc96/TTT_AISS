@@ -76,8 +76,8 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
     <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
     <script type="text/javascript">
     new Twitch.Embed("twitch-embed", {
-        width: 1820,
-        height: 720,
+        width: 800,
+        height: 800,
         channel: "${data.userName}",
         autoplay: false,
         theme: "dark"
@@ -100,8 +100,8 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
     <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
     <script type="text/javascript">
       new Twitch.Embed("twitch-embed", {
-        width: 1700,
-        height: 720,
+        width: 800,
+        height: 800,
         video: "${vdata.id}",
         autoplay: false,
         theme: "dark"
