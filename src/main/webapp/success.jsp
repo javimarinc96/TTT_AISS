@@ -21,9 +21,9 @@
 
 <img src="${gdata.boxArtUrl}" width="350" height="400">
 <br/>
-Titulo del juego: <c:out value="${gdata.name}"/><br/>
+<h4>Titulo del juego: </h4> <c:out value="${gdata.name}"/><br/>
 <br/>
-Id de Referencia: <c:out value="${gdata.id}"/><br/>
+<h4>Id de Referencia: </h4> <c:out value="${gdata.id}"/><br/>
 
 
 </c:forEach>
@@ -39,13 +39,11 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 
 	<h2><c:out value="${item.snippet.title}"/></h2><br/>
 	<iframe src= "http://www.youtube.com/embed/${item.id.videoId}" ></iframe> 
-	 
-
 	
 	<div id="commentDiv">
 	
 		<form id="commentForm" action="YoutubeAddComment" method="post">
-			Add your comment: <input name="texto" type="text" required="required"> 
+			<h4>Add your comment:</h4> <input name="texto" type="text" required="required"> 
 			<input name="videoId" type="hidden" value="${item.id.videoId}">
 			<button type="submit" class="button">Comentar</button>
 		</form>
@@ -87,8 +85,8 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 
 <c:forEach items="${vdata}" var="vdata">
     
-    Usuario:<h2><c:out value="${vdata.userName}"/></h2><br/>
-	Video:<h2><c:out value="${vdata.title}"/></h2><br/>
+    <h2><c:out value="${vdata.userName}"/></h2><br/>
+	<h2><c:out value="${vdata.title}"/></h2><br/>
 	
  	<!-- Add a placeholder for the Twitch embed -->
     <div id="twitch-embed"></div>

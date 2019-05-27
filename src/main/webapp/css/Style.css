@@ -16,11 +16,18 @@ body {
 }
 /* Headers */
 
-h {
-	color: #B40404;
+h2{
+	color: #FFFFFF;
 	font-size: 2em;
-	text-align: center;
+	text-align: left;
 }
+
+h4{
+	color: #FFFFFF;
+	font-size: 2em;
+	text-align: left;
+}
+
 #searchDiv{border: 1px solid  red;
 background-color:black;
 border-radius:10px;
@@ -79,7 +86,17 @@ input[type=text]{
   margin-right: 15%;
   margin-top:12%;
 }
-a{font-weight: bold;}
-#volver{ line-height: 0.4;
+
+a{
+	font-weight: bold;
+	}
+legend{
+	color: #FFFFFF;
 }
-#logo2{ margin-top:3%;}
+
+#volver{ 
+	line-height: 0.4;
+}
+#logo2{ 
+	margin-top:3%;
+	}
