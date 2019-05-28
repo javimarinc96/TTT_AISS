@@ -20,14 +20,10 @@
 <c:forEach items="${gdata}" var="gdata">
 
 <img src="${gdata.boxArtUrl}" width="350" height="400">
-<br/>
-<h4>Titulo del juego: </h4> <c:out value="${gdata.name}"/><br/>
-<br/>
-<h4>Id de Referencia: </h4> <c:out value="${gdata.id}"/><br/>
-
+<h5>Titulo del juego:  <c:out value="${gdata.name}"/></h5>
+<h5>Id de Referencia:  <c:out value="${gdata.id}"/></h5>
 
 </c:forEach>
-
 </fieldset>
 
 <fieldset id="youtube">
