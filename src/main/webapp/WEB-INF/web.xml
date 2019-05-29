@@ -15,24 +15,7 @@
 	</context-param>
 	
 	<!-- WEBAPP SERVLETS -->
-  <servlet>
-    <servlet-name>YoutubeSearchController</servlet-name>
-    <servlet-class>aiss.controller.YoutubeSearchController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>YoutubeSearchController</servlet-name>
-    <url-pattern>/YoutubeSearch</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>TwitchController</servlet-name>
-    <servlet-class>aiss.controller.TwitchController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>TwitchController</servlet-name>
-    <url-pattern>/TwitchSearch</url-pattern>
-  </servlet-mapping>
-  
+
    <servlet>
     <servlet-name>SearchController</servlet-name>
     <servlet-class>aiss.controller.SearchController</servlet-class>
