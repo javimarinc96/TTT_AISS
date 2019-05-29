@@ -34,7 +34,6 @@
     <url-pattern>/YoutubeAddComment</url-pattern>
   </servlet-mapping>
 
-  
   	<!--  OAUTH SERVLETS 
   
   	For each OAuth 2.0 service, you need to create two servlets: one for the initiation 
@@ -128,6 +127,7 @@
 			<param-value>aiss.api.GameApplication</param-value>
 		</init-param>
 	</servlet>		
+	
 	<!-- All calls to /api/xxx will be sent to the resteasy servlet -->
 	<servlet-mapping>
 		<servlet-name>Resteasy</servlet-name>

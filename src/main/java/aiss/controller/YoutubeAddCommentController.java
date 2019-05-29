@@ -61,7 +61,7 @@ public class YoutubeAddCommentController extends HttpServlet {
 		//Setear todo al nuevo comment thread
 		nuevo.setSnippet(snippetTh);
 		
-		String accessToken = (String) request.getSession().getAttribute("Youtube-token");
+		String accessToken = (String) request.getSession().getAttribute("YouTube-token");
 		
 		if (accessToken != null && !"".equals(accessToken)) {
 			
@@ -77,12 +77,12 @@ public class YoutubeAddCommentController extends HttpServlet {
 				rd = request.getRequestDispatcher("/index.jsp");
 			} else {
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
-				rd = request.getRequestDispatcher("/AuthController/Youtube");
+				rd = request.getRequestDispatcher("/AuthController/YouTube");
 			}
 			
 		}else{
 			 log.info("Trying to access Youtube without an access token, redirecting to OAuth servlet");
-			 rd = request.getRequestDispatcher("/AuthController/Youtube");
+			 rd = request.getRequestDispatcher("/AuthController/YouTube");
 		}
 		
 		rd.forward(request, response);
