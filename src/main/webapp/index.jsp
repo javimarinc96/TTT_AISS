@@ -15,7 +15,7 @@
 	
 	<img src=https://i.imgur.com/oJsiy6b.png class="center">
 
-	<p>${message}</p>
+	<h4>${message}</h4>
 
 	<div id="searchDiv">
 		<form id="searchForm" action="Search" method="post">
