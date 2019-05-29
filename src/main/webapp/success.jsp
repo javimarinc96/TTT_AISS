@@ -73,6 +73,7 @@
         width: 800,
         height: 800,
         channel: "${data.userName}",
+        muted: true,
         autoplay: false,
         theme: "dark"
       });
@@ -97,6 +98,7 @@
         width: 800,
         height: 800,
         video: "${vdata.id}",
+        muted: true,
         autoplay: false,
         theme: "dark"
       });
