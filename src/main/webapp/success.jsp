@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  
  
 <!DOCTYPE html> 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="css/Style.css">
 <title>Search results</title>
 </head>
@@ -34,7 +33,7 @@
 <c:forEach items="${requestScope.items}" var="item">
 
 	<h2><c:out value="${item.snippet.title}"/></h2><br/>
-	<iframe src= "http://www.youtube.com/embed/${item.id.videoId}" ></iframe> 
+	<iframe src= "http://www.youtube.com/embed/${item.id.videoId}" allowfullscreen width="853" height="480"></iframe> 
 	
 	<div id="commentDiv">
 	
@@ -73,6 +72,7 @@
         width: 800,
         height: 800,
         channel: "${data.userName}",
+        muted: true,
         autoplay: false,
         theme: "dark"
       });
@@ -97,6 +97,7 @@
         width: 800,
         height: 800,
         video: "${vdata.id}",
+        muted: true,
         autoplay: false,
         theme: "dark"
       });

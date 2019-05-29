@@ -12,7 +12,8 @@
 
 <h1>TTT PROJECT</h1>
 
-	<img src=https://cdn.discordapp.com/attachments/470003850343088129/581906848463192085/Sin_titulo-1.png class="center">
+	
+	<img src=https://i.imgur.com/oJsiy6b.png class="center">
 
 	<p>${message}</p>
 
