@@ -6,44 +6,40 @@
 <!DOCTYPE html> 
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/Style.css">
 <title>Search results</title>
 </head>
 
 <body>
+
 <fieldset id="game-data">
 
-<h3>Informacion del juego</h3>
+<legend>Informacion del juego</legend>
 
 <c:forEach items="${gdata}" var="gdata">
 
 <img src="${gdata.boxArtUrl}" width="350" height="400">
-<br/> 
-Titulo del juego: <c:out value="${gdata.name}"/><br/>
-<br/>
-Id de Referencia: <c:out value="${gdata.id}"/><br/>
-
+<h5>Titulo del juego:  <c:out value="${gdata.name}"/></h5>
+<h5>Id de Referencia:  <c:out value="${gdata.id}"/></h5>
 
 </c:forEach>
-
 </fieldset>
+
 <fieldset id="youtube">
 
-<h3>Videos de YouTube para: <c:out value="${param.query}"/></h3>
+<legend>Videos de YouTube para: <c:out value="${param.query}"/></legend>
 
 
 <c:forEach items="${requestScope.items}" var="item">
 
 	<h2><c:out value="${item.snippet.title}"/></h2><br/>
 	<iframe src= "http://www.youtube.com/embed/${item.id.videoId}" ></iframe> 
-	 
-
 	
 	<div id="commentDiv">
 	
 		<form id="commentForm" action="YoutubeAddComment" method="post">
-			Add your comment: <input name="texto" type="text" required="required"> 
+			<h4>Add your comment:</h4> <input name="texto" type="text" required="required"> 
 			<input name="videoId" type="hidden" value="${item.id.videoId}">
 			<button type="submit" class="button">Comentar</button>
 		</form>
@@ -57,7 +53,7 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 
 <fieldset id="twitch-embed">
 
-<h3>Streams de Twitch para: <c:out value="${param.query}"/></h3>
+<legend>Streams de Twitch para: <c:out value="${param.query}"/></legend>
 
 <c:forEach items="${data}" var="data">
     
@@ -85,8 +81,8 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 
 <c:forEach items="${vdata}" var="vdata">
     
-    Usuario:<h2><c:out value="${vdata.userName}"/></h2><br/>
-	Video:<h2><c:out value="${vdata.title}"/></h2><br/>
+    <h2><c:out value="${vdata.userName}"/></h2><br/>
+	<h2><c:out value="${vdata.title}"/></h2><br/>
 	
  	<!-- Add a placeholder for the Twitch embed -->
     <div id="twitch-embed"></div>
@@ -112,7 +108,7 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 
 <fieldset id="aliexpress">
 
-<h3>Merchandising de AliExpress para: <c:out value="${param.query}"/></h3>
+<legend>Merchandising de AliExpress para: <c:out value="${param.query}"/></legend>
 
 		
 		<c:forEach items="${requestScope.productos}" var="producto" begin="1" end="5">
@@ -132,4 +128,4 @@ Id de Referencia: <c:out value="${gdata.id}"/><br/>
 	
 
 </body>
-</html></html>
+</html>

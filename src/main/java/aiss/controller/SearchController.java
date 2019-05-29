@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import aiss.model.aliexpress.AliExpress;
+
+import aiss.model.resources.AliExpressResource;
 import aiss.model.resources.TwitchResource;
 import aiss.model.resources.YoutubeResource;
 import aiss.model.twitch.Games;
@@ -44,7 +47,7 @@ public class SearchController extends HttpServlet {
 		String query = request.getParameter("query");
 		System.out.println(query);
 		
-		String youtubeToken = (String) request.getSession().getAttribute("Youtube-token");
+		String youtubeToken = (String) request.getSession().getAttribute("YouTube-token");
 		String twitchToken = (String) request.getSession().getAttribute("Twitch-token");
 		
 		//Comprobamos que esta logueado en las 3 apis mediantes sus tokens
@@ -54,26 +57,31 @@ public class SearchController extends HttpServlet {
 			log.log(Level.FINE, "Searching with keyword" + query);
 			log.log(Level.FINE, "yttoken" + youtubeToken);
 			log.log(Level.FINE, "twtoken" + twitchToken);
+			System.out.println(youtubeToken);
+			System.out.println(twitchToken);
 			
 			//inicializamos recursos
 			YoutubeResource youtube = new YoutubeResource(youtubeToken);
 			TwitchResource twitch = new TwitchResource(twitchToken);
-			
+			AliExpressResource aliexpress = new AliExpressResource();
+		
 			//obtenemos los objetos de busqueda
 			Search youtubeSearch = youtube.getSearch(query);
 	    	Stream twitchGameSearch = twitch.getStreams(query);
 	    	Games twitchGame = twitch.getGameStreams(query);
 	    	Videos twitchVideo = twitch.getVideos(query);
+			AliExpress aliResults = aliexpress.getProducts(query);
 			
 //en el controlador se comprueba si estas logueado en las 3 APIS , si estas se lanza, si no, se manda al usuario a pagina 
 //aviso de login vista con 3 enlaces a las vistas de  login de las 3 apis
 		
-	    	if (youtubeSearch!= null && twitchGame != null){
+	    	if (youtubeSearch!= null && twitchGameSearch != null){
 	    		//cargamos los objetos en la vista de exito
 				request.setAttribute("items", youtubeSearch.getItems());
 				request.setAttribute("data", twitchGameSearch.getData());
 				request.setAttribute("gdata", twitchGame.getData());
 				request.setAttribute("vdata", twitchVideo.getData());
+				request.setAttribute("productos", aliResults.getResult().getProducts());
 				rd = request.getRequestDispatcher("/success.jsp");
 			} else if(youtubeSearch!= null && twitchGame == null){
 				request.setAttribute("items", youtubeSearch.getItems());

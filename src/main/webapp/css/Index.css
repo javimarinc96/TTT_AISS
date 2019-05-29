@@ -1,0 +1,60 @@
+body {
+	background-image: url("https://wallpaperplay.com/walls/full/9/2/c/142926.jpg");
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+
+/* images*/
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+/* Headers */
+
+h1 {
+	color: #B40404;
+	font-size: 2em;
+	text-align: center;
+}
+
+/*bars*/
+#searchForm{ 
+  margin-top:100px;
+  margin-left: 25%;
+  margin-right: 25%;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1.5;
+   word-spacing: 10px;
+  font-weight: bold;
+  
+}
+input[type=text]{
+  background-color: #ffffff;
+  border-radius: 10px;
+  
+}
+/* buttons */
+
+.button, .button:visited {
+    background-color: #36E291; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+ 	text-align: right;
+ 	line-height: 0.3
+}
+
+.button:hover, .button:active  {
+    background: #FE2E2E;
+  
+}

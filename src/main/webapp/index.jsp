@@ -4,16 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TTT project</title>
+<title>PROJECT TTT</title>
 <link rel="stylesheet" type="text/css" href="css/Style.css">
 </head>
 <body>
 
 
-<img src=https://cdn.discordapp.com/attachments/470003850343088129/581906848463192085/Sin_titulo-1.png class="center">
+<h1>TTT PROJECT</h1>
 
-  <div id="searchDiv">
+	<img src=https://cdn.discordapp.com/attachments/470003850343088129/581906848463192085/Sin_titulo-1.png class="center">
+
+	<p>${message}</p>
+
+	<div id="searchDiv">
 		<form id="searchForm" action="Search" method="post">
 			Introduce el nombre del juego: <input type="text" name="query" required/> 
 			<button type="submit" class="button">Buscar</button>

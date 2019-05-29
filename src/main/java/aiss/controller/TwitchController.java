@@ -48,22 +48,21 @@ public class TwitchController extends HttpServlet {
     	log.log(Level.FINE, "Searching for videos and streams" + query);
     	log.log(Level.FINE, "token" + accessToken);
     	TwitchResource twitch = new TwitchResource(accessToken);
-    	Games twitchGame = twitch.getGameStreams(query);
     	Stream twitchGameSearch = twitch.getStreams(query);
+    	Games twitchGame = twitch.getGameStreams(query);
     	Videos twitchVideo = twitch.getVideos(query);
-    	
 
     	if (twitchGameSearch != null) {
     			log.info("");
 				request.setAttribute("data", twitchGameSearch.getData());
 				request.setAttribute("gdata", twitchGame.getData());
 				request.setAttribute("vdata", twitchVideo.getData());
-				rd = request.getRequestDispatcher("Success.jsp");
+				rd = request.getRequestDispatcher("/twitchSuccess.jsp");
 			} else {
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
 				rd = request.getRequestDispatcher("/AuthController/Twitch");
 			}
-		}else{
+    	}else{
 			 log.info("Trying to access Twitch without an access token, redirecting to OAuth servlet");
 			 rd = request.getRequestDispatcher("/AuthController/Twitch");
 		}
