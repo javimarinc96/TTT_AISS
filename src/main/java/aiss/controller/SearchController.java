@@ -83,10 +83,11 @@ public class SearchController extends HttpServlet {
 				request.setAttribute("vdata", twitchVideo.getData());
 				request.setAttribute("productos", aliResults.getResult().getProducts());
 				rd = request.getRequestDispatcher("/success.jsp");
-			} else if(youtubeSearch!= null && twitchGame == null){
+			} else if(youtubeSearch!= null && twitchVideo == null){
 				request.setAttribute("items", youtubeSearch.getItems());
+				request.setAttribute("productos", aliResults.getResult().getProducts());
 				log.info("The game you search is not in Twitch dabatase.");
-				rd = request.getRequestDispatcher("/success.jsp");
+				rd = request.getRequestDispatcher("/successWTwitch.jsp");
 			} else {
 				log.info("The files returned are null... probably your token has experied. Redirecting to OAuth servlet.");
 				rd = request.getRequestDispatcher("/error.jsp");

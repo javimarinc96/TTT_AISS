@@ -17,13 +17,8 @@
 
 <legend>Informacion del juego</legend>
 
-<c:forEach items="${gdata}" var="gdata">
+<h5>NO SE HA ENCONTRADO EL JUEGO ENLA BASE DE DATOS DE TWITCH  <c:out value="${gdata.name}"/></h5>
 
-<img src="${gdata.boxArtUrl}" width="350" height="400">
-<h5>Titulo del juego:  <c:out value="${gdata.name}"/></h5>
-<h5>Id de Referencia:  <c:out value="${gdata.id}"/></h5>
-
-</c:forEach>
 </fieldset>
 
 <fieldset id="youtube">
@@ -46,62 +41,6 @@
 		
 	</div>
 	
-</c:forEach>
-
-</fieldset>
-
-
-<fieldset id="twitch-embed">
-
-<legend>Streams de Twitch para: <c:out value="${param.query}"/></legend>
-
-<c:forEach items="${data}" var="data">
-    
-    <h2><c:out value="${data.userName}"/></h2><br/>
-	<h2><c:out value="${data.title}"/></h2><br/>
-	
- <!-- Add a placeholder for the Twitch embed -->
-    <div id="twitch-embed"></div>
-    
-
-    <!-- Load the Twitch embed script -->
-    <script src="https://embed.twitch.tv/embed/v1.js"></script>
-
-    <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
-    <script type="text/javascript">
-    new Twitch.Embed("twitch-embed", {
-        width: 800,
-        height: 800,
-        channel: "${data.userName}",
-        autoplay: false,
-        theme: "dark"
-      });
-    </script>
-</c:forEach>
-
-<c:forEach items="${vdata}" var="vdata">
-    
-    <h2><c:out value="${vdata.userName}"/></h2><br/>
-	<h2><c:out value="${vdata.title}"/></h2><br/>
-	
- 	<!-- Add a placeholder for the Twitch embed -->
-    <div id="twitch-embed"></div>
-    
-
-    <!-- Load the Twitch embed script -->
-    <script src="https://embed.twitch.tv/embed/v1.js"></script>
-
-    <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
-    <script type="text/javascript">
-      new Twitch.Embed("twitch-embed", {
-        width: 800,
-        height: 800,
-        video: "${vdata.id}",
-        autoplay: false,
-        theme: "dark"
-      });
-    </script>
-    
 </c:forEach>
 
 </fieldset>

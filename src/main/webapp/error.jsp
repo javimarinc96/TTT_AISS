@@ -12,16 +12,21 @@
 <div id="error">
 
 <h3>Por favor, haz login en las siguientes APIS antes de realizar tu busqueda</h3>
+<h4>Una vez realizado los dos logueos, vuelva a buscar</h4>
 
    <table>
       <tr>
         <td colspan="2" style="font-weight:bold;">Enlaces de Login:</td>        
       </tr>
       <tr>
-        <td><a href="/AuthController/YouTube">YouTube</a></td>
+        <td><a href="/AuthController/YouTube">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1280px-YouTube_full-color_icon_%282017%29.svg.png" width="100" height="70"/>
+        </a></td>
       </tr>
        <tr>
-        <td><a href="/AuthController/Twitch">Twitch</a></td>
+        <td><a href="/AuthController/Twitch">
+        <img src="https://assets.help.twitch.tv/Glitch_Purple_RGB.png" width="100" height="100"/>
+        </a></td>
       </tr>
     </table>
     
